@@ -8,11 +8,6 @@ import math
 
 cmap = matplotlib.cm.get_cmap('BuGn')
 
-plt.axis('equal')
-plt.axis('off')
-plt.xlim(20,80)
-plt.ylim(20,80)
-
 def circles_polyline(ellipses, n=1000):
     t = np.linspace(0, 2*np.pi, n, endpoint=False)
     st = np.sin(t)
@@ -122,7 +117,13 @@ def create_circles(name):
                 plt.fill(a_[0][:,0], a_[0][:,1],color=cmap(1-circles[idc][1]/100.0),zorder=10)
                 plt.plot(a_[1][:,0], a_[1][:,1],linestyle="--",dashes=(2, 4),color=cmap(0.4),zorder=10)
     #plt.show()
+    plt.axis('equal')
+    plt.axis('off')
+    plt.xlim(20,80)
+    plt.ylim(20,80)
+
     plt.savefig("%s.pdf"%(name), dpi=800)
+    plt.savefig("%s.png"%(name), dpi=150)
     plt.gcf().clear()
 
 for i in range(15):
